@@ -84,6 +84,8 @@ var Tank = Class.create(Sprite, {
 					// １ブロック前へ進むことができるかどうかを調べる。
 					if (this.checkFront()) {
 						// １ブロック分移動した後の座標がステージの範囲内であれば移動処理を開始する。
+						var x = this.x + this.vx * TANK_SIZE;
+						var y = this.y + this.vy * TANK_SIZE;
 						this.doMove(x, y);
 					}
 				}
