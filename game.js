@@ -114,9 +114,9 @@ var Tank = Class.create(Sprite, {
 				if (this.vx || this.vy) {
 					// 移動処理を行った後の座標を仮計算。
 					// そしてその座標が画面内であるかどうか、壁があるかどうかを調べる。
-					var x = this.x + this.vx * TANK_SIZE;
-					var y = this.y + this.vy * TANK_SIZE;
-					if (isInsideScreen(x, y) && !background.hitTest(x, y)) {
+					if (this.checkFront()) {
+						var x = this.x + this.vx * TANK_SIZE;
+						var y = this.y + this.vy * TANK_SIZE;
 						// 一ブロック分移動した後の座標がステージの範囲内であれば移動処理を開始する。
 						this.doMove(x, y);
 					}
